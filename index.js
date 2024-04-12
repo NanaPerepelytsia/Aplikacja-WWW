@@ -65,11 +65,9 @@ app.put(`/updateassignment/:id`, async (req, res) => {
     });
 
     if (!assignmentData) {
-      return res
-        .status(404)
-        .send({
-          error: `Assignment with id ${id} does not exist in the database `,
-        });
+      return res.status(404).send({
+        error: `Assignment with id ${id} does not exist in the database `,
+      });
     }
 
     const updatedassignment = await prisma.assignment.update({
@@ -96,3 +94,7 @@ app.delete("/deleteassignment/:id", async (req, res) => {
   });
   res.send(assignment);
 }); // видалення завдання з поверненням
+
+const server = app.listen(3000, () =>
+  console.log(`Server is running on http://localhost:3000`)
+);

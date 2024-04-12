@@ -6,12 +6,12 @@
 
 generator client {
   provider = "prisma-client-js"
- previewFeatures = ["driverAdapters"]
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("DATABASE_URL")  // !!! звернути увагу
 }
 
 model User {
@@ -19,7 +19,7 @@ model User {
   username  String  @unique
   role      Role    @default(BASIC)
   password  String
-  writtenassignments Todo[] 
+  writtenAssignments Todo[]  // !!! зверни увагу writtenTask
 
 }
 
